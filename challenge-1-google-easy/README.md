@@ -11,3 +11,48 @@ For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 Bonus: Can you do this in one pass?
 
 source: https://www.dailycodingproblem.com/
+
+
+
+### Analyzing the steps
+
+if we run trough the array with a index i starting from 0
+```kotlin
+i = 0  -> a[i] + a[i +1] == k || a[i] + a[i+2] == k || a[i] + a[i + 3] == k
+i = 1  -> a[i] + a[i +1] == k || a[i] + a[i+2] == k
+i = 2  -> a[i] + a[i +1] == k
+```
+
+### Verification 
+
+* The array size should not be lesser than two, otherwise there is no how to sum two numbers
+
+
+Note that the second operator of the sum can be alwasy i + 1
+If we call it an index j, should be started with i + 1
+
+```kotlin
+  
+  var i = 0
+  while(i <= arraySize -1) {
+		var j = i + 1
+		while(j <= arraySize -1){
+			//Checks if sum is equal to k
+			if(array[i] + array[j] == k)
+				return true
+				
+			j++	
+		}
+		i++
+  }
+```
+
+### Unit Tests
+
+* assert canAdd([10, 7], 17) = true
+* assert canAdd([10, 15, 3, 7], 17) = true
+* assert canAdd([10, 15, 3, 1], 17) = false
+* assert canAdd([any], any) = false
+* assert canAdd([], any) = false
+
+
