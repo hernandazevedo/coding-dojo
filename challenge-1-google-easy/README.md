@@ -1,4 +1,4 @@
-### Daily Coding Problem: Problem #1 [Easy]
+### Daily Coding Problem: Problem #1 [Easy] Google
 
 Good morning! Here's your coding interview problem for today.
 
