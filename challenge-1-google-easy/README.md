@@ -46,6 +46,35 @@ If we call it an index j, should be started with i + 1
 		i++
   }
 ```
+Also the code above can be done with only one iteration, and moving i and j together until 
+
+```kotlin
+var i = arraySize - 2  //last index - 1
+var j = arraySize - 1 //last index
+```
+
+```kotlin
+
+var leftOperandIndex = 0
+        var rightOperandIndex = leftOperandIndex + 1
+        var arraySize = array.size
+        var lastLeftOperandIndex = arraySize - 2
+        var lastRightOperandIndex = arraySize - 1
+
+        while (leftOperandIndex <= lastLeftOperandIndex && rightOperandIndex <= lastRightOperandIndex) {
+            if (checkIfSumsIsEqualTo(array, leftOperandIndex, rightOperandIndex, k)) {
+                return true
+            }
+
+            if(rightOperandIndex == lastRightOperandIndex) {
+                leftOperandIndex++
+                rightOperandIndex = leftOperandIndex + 1
+            } else {
+                rightOperandIndex++
+            }
+        }
+	
+```
 
 ### Unit Tests
 
